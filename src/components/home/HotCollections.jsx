@@ -4,9 +4,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "../../css/styles/react.slick.carousel.css";
 
 const HotCollections = () => {
-  
+
   const carouselSettings = {
     infinite: true,
     speed: 500,

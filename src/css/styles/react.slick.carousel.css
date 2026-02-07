@@ -1,0 +1,45 @@
+.slick-arrow {
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slick-prev::before,
+.slick-next::before {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
+
+    color: black;
+    border: 1px solid gray;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: all 300ms ease;
+    opacity: 1;
+}
+
+.slick-next::before {
+    transform: translateX(-54px);
+}
+
+.slick-prev::before {
+    transform: translate(16px);
+}
+
+.slick-next:hover::before,
+.slick-prev:hover::before {
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+}
+
+.slick-next:hover::before {
+    transform: translateX(-54px) scale(1.2)  
+}
+
+.slick-prev:hover::before {
+    transform: translate(16px) scale(1.2)  
+}
