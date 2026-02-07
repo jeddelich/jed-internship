@@ -1,11 +1,19 @@
+import Slider from "react-slick";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const HotCollections = () => {
   
+  const carouselSettings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+  }
+
   const [hotCollectionsData, setHotCollectionsData] = useState()
 
   async function requestHotCollections() {
@@ -27,10 +35,10 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          {hotCollectionsData?.map((collection) => (
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={collection.id}>
-              <div className="nft_coll">
-                <div className="nft_wrap">
+          <Slider {...carouselSettings}>{hotCollectionsData?.map((collection) => (
+            <div key={collection.id}>
+              <div className="nft_coll mx-2">
+                <div className="nft_wrap" >
                   <Link to="/item-details">
                     <img src={collection.nftImage} className="lazy img-fluid" alt="" />
                   </Link>
@@ -49,7 +57,7 @@ const HotCollections = () => {
                 </div>
               </div>
             </div>
-          ))}
+          ))}</Slider>
         </div>
       </div>
     </section>
