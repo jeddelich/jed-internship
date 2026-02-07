@@ -38,7 +38,7 @@ const HotCollections = () => {
           </div>
           <Slider {...carouselSettings}>{hotCollectionsData?.map((collection) => (
             <div key={collection.id}>
-              <div className="nft_coll mx-2">
+              <div className="nft_coll mx-1">
                 <div className="nft_wrap" >
                   <Link to="/item-details">
                     <img src={collection.nftImage} className="lazy img-fluid" alt="" />
