@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { carouselSettings } from "./carouselSettings";
+import "../../css/styles/carouselSkeleton.css"
 
 function CarouselSkeleton() {
 

@@ -15144,7 +15144,7 @@ a.btn-slider:hover {
   margin: 0 6px;
   display: inline-block;
   zoom: 1;
-  *display: inline;
+  display: inline;
 }
 
 .testi-slider .flex-control-paging li a {
@@ -16712,42 +16712,4 @@ img {
 
 .no-cursor {
   cursor: not-allowed;
-}
-
-.skeleton__img {
-  width: 600px;
-  height: 148px;
-  max-width: 100%;
-  background-color: lightgray;
-}
-
-.skeleton__profile{
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: lightgray;
-  border: solid 5px #ffffff;
-}
-
-.skeleton__description--wrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.skeleton__title{
-  display: inline-block;
-  align-content: center;
-  border-radius: 2px;
-  height: 12px;
-  width: 60px;
-  background-color: lightgray;
-}
-
-.skeleton__code{
-  display: inline-block;
-  border-radius: 2px;
-  height: 12px;
-  width: 40px;
-  background-color: lightgray;
 }
