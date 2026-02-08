@@ -17,7 +17,7 @@ const HotCollections = () => {
   }
 
   useEffect(() => {
-    // requestHotCollections();
+    requestHotCollections();
   }, []);
 
   return (
