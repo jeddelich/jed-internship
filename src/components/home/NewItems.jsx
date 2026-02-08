@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
+import Slider from "react-slick";
+import { carouselSettings } from "../UI/carouselSettings";
 
 const NewItems = () => {
   
@@ -29,9 +29,9 @@ const NewItems = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          {newItemsData?.map((item, index) => (
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
-              <div className="nft__item">
+          <Slider {...carouselSettings}>{newItemsData?.map((item, index) => (
+            <div key={item.id}>
+              <div className="nft__item mx-1">
                 <div className="author_list_pp">
                   <Link
                     to={`/author/${item.authorId}`}
@@ -85,7 +85,7 @@ const NewItems = () => {
                 </div>
               </div>
             </div>
-          ))}
+          ))}</Slider>
         </div>
       </div>
     </section>
