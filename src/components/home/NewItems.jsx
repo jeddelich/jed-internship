@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Slider from "react-slick";
 import { carouselSettings } from "../UI/carouselSettings";
+import Countdown from "../UI/Countdown";
 
 const NewItems = () => {
   
@@ -16,7 +17,7 @@ const NewItems = () => {
   }
 
   useEffect(() => {
-    requestNewItems().then(console.log(newItemsData))
+    requestNewItems()
   }, []);
   
   return (
@@ -44,7 +45,7 @@ const NewItems = () => {
                   </Link>
                 </div>
                 {
-                item.expiryDate && <div className="de_countdown">{item.expiryDate}</div>  
+                item.expiryDate && <Countdown expiryDate={item.expiryDate} />
                 }
                 <div className="nft__item_wrap">
                   <div className="nft__item_extra">
