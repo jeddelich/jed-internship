@@ -7,8 +7,8 @@ function CarouselSkeleton() {
 
   return (
     <Slider {...carouselSettings}>
-      {new Array(6).fill("").map((collection) => (
-        <div key={collection.id}>
+      {new Array(6).fill("").map((collection, index) => (
+        <div key={index}>
           <div className="nft_coll mx-1">
             <div className="nft_wrap">
               <Link to="/item-details/">
