@@ -1,0 +1,35 @@
+.skeleton__img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 4px solid white;
+}
+
+.nft__item_wrap-skeleton {
+    background-color: lightgray;
+    margin-bottom: 4px;
+}
+
+.nft__item_bottom-skeleton{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nft__item_price-skeleton {
+  width: 100px;
+  height: 20px;
+  background-color: lightgray;
+}
+
+.nft__item_like-skeleton {
+  width: 30px;
+  margin-top: 8px;
+  height: 16px;
+  background-color: lightgray;
+}
+
+.nft__item_info-skeleton h4 {
+    width: 172px;
+    height: 28px;
+    background-color: lightgray;
+}

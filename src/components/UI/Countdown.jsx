@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 function Countdown({ expiryDate }) {
   const [timeLeft, setTimeLeft] = useState(expiryDate - Date.now());
 
-  const seconds = Math.floor(((timeLeft - 57 * 60000) / 1000) % 60);
-  const minutes = Math.floor(((timeLeft - 57 * 60000) / 60000) % 60);
-  const hours = Math.floor((timeLeft - 57 * 60000) / 3600000);
+  const seconds = Math.floor((timeLeft / 1000) % 60);
+  const minutes = Math.floor((timeLeft / 60000) % 60);
+  const hours = Math.floor(timeLeft / 3600000);
 
   useEffect(() => {
     const interval = setInterval(() => {
