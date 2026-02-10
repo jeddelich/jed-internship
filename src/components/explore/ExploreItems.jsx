@@ -3,6 +3,7 @@ import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Countdown from "../UI/Countdown";
 
 const ExploreItems = () => {
   const [exploreData, setExploreData] = useState(null);
@@ -45,8 +46,7 @@ const ExploreItems = () => {
                 <i className="fa fa-check"></i>
               </Link>
             </div>
-            <div className="de_countdown">5h 30m 32s</div>
-
+            {item.expiryDate && <Countdown expiryDate={item.expiryDate} />}
             <div className="nft__item_wrap">
               <div className="nft__item_extra">
                 <div className="nft__item_buttons">
