@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import { carouselSettings } from "../UI/carouselSettings";
-import NewItemsSkeleton from "../UI/NewItemsSkeleton";
 import ItemCards from "../UI/ItemCards";
+import ItemSkeleton from "../UI/ItemSkeleton";
 
 const NewItems = () => {
   const [newItemsData, setNewItemsData] = useState(null);
@@ -34,7 +34,11 @@ const NewItems = () => {
               {newItemsData.map((item) => (<ItemCards key={item.id} item={item} />))}
             </Slider>
           ) : (
-            <NewItemsSkeleton />
+            <Slider {...carouselSettings}>
+              {new Array(6).fill("").map((item) => (
+              <ItemSkeleton key={item.id} item={item}/>
+              ))}
+            </Slider>
           )}
         </div>
       </div>
