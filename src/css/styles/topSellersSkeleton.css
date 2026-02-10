@@ -1,0 +1,19 @@
+.author__img--skeleton{
+    height: 48px;
+    width: 48px;
+    background-color: lightgray;
+    border-radius: 50%;
+}
+
+.author__name--skeleton{
+    height: 20px;
+    width: 100px;
+    background-color: lightgray;
+}
+
+.price--skeleton{
+    height: 20px;
+    width: 40px;
+    margin-top: 8px;
+    background-color: lightgray;
+}

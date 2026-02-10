@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
 import axios from "axios";
+import TopSellersSkeleton from "../UI/TopSellersSkeleton";
 
 const TopSellers = () => {
   const [topSellers, setTopSellers] = useState(null);
@@ -14,7 +14,7 @@ const TopSellers = () => {
   }
 
   useEffect(() => {
-    requestTopSellers().then(console.log(topSellers))
+    requestTopSellers()
   }, []);
   
   return (
@@ -29,7 +29,9 @@ const TopSellers = () => {
           </div>
           <div className="col-md-12">
             <ol className="author_list">
-              {topSellers?.map((seller, index) => (
+              {
+              topSellers ?
+              topSellers.map((seller, index) => (
                 <li key={seller.id}>
                   <div className="author_list_pp">
                     <Link to={`/author/${seller.authorId}`}>
@@ -46,7 +48,8 @@ const TopSellers = () => {
                     <span>{seller.price} ETH</span>
                   </div>
                 </li>
-              ))}
+              )) : <TopSellersSkeleton />
+            }
             </ol>
           </div>
         </div>
