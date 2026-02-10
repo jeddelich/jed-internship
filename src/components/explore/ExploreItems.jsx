@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Countdown from "../UI/Countdown";
 import ItemCards from "../UI/ItemCards";
 
 const ExploreItems = () => {
   const [exploreData, setExploreData] = useState(null);
+  const [cardsDisplayed, setCardsDisplayed] = useState(8);
 
   async function requestExploreData() {
     const { data } = await axios.get(
@@ -16,10 +14,17 @@ const ExploreItems = () => {
     setExploreData(data);
   }
 
+  function displayMore(event) {
+    event.preventDefault();
+    if (cardsDisplayed < exploreData?.length) {
+      setCardsDisplayed(cardsDisplayed + 4);
+    }
+  }
+
   useEffect(() => {
-    requestExploreData().then(console.log(exploreData))
+    requestExploreData();
   }, []);
-  
+
   return (
     <>
       <div>
@@ -30,15 +35,25 @@ const ExploreItems = () => {
           <option value="likes_high_to_low">Most liked</option>
         </select>
       </div>
-      {
-        exploreData?.map((item) =>(
-          <ItemCards key={item.id} item={item} wrapperClass="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12 w-full" wrapperStyle={{ display: "block", backgroundSize: "cover" }}/>
-        ))
-      }
+      {exploreData?.slice(0, cardsDisplayed).map((item) => (
+        <ItemCards
+          key={item.id}
+          item={item}
+          wrapperClass="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12 w-full"
+          wrapperStyle={{ display: "block", backgroundSize: "cover" }}
+        />
+      ))}
       <div className="col-md-12 text-center">
-        <Link to="" id="loadmore" className="btn-main lead">
-          Load more
-        </Link>
+        {cardsDisplayed < exploreData?.length && (
+          <Link
+            to=""
+            id="loadmore"
+            className="btn-main lead"
+            onClick={displayMore}
+          >
+            Load more
+          </Link>
+        )}
       </div>
     </>
   );
