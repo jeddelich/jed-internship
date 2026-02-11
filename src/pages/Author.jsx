@@ -3,6 +3,7 @@ import AuthorItems from "../components/author/AuthorItems";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import AuthorSkeleton from "../components/UI/AuthorSkeleton";
 
 const Author = () => {
  
@@ -31,7 +32,6 @@ const Author = () => {
       requestAuthor();
     } else {
       setFollowerAmount(author.followers)
-      console.log(author);
     }
   }, [useParams, setAuthor, author]);
  
@@ -51,19 +51,22 @@ const Author = () => {
         <section aria-label="section">
           <div className="container">
             <div className="row">
+                {
+                  author ? 
               <div className="col-md-12">
-                <div className="d_profile de-flex">
+                  
+                  <div className="d_profile de-flex">
                   <div className="de-flex-col">
                     <div className="profile_avatar">
-                      <img src={author?.authorImage} alt="" />
+                      <img src={author.authorImage} alt="" />
 
                       <i className="fa fa-check"></i>
                       <div className="profile_name">
                         <h4>
-                          {author?.authorName}
-                          <span className="profile_username">@{author?.tag}</span>
+                          {author.authorName}
+                          <span className="profile_username">@{author.tag}</span>
                           <span id="wallet" className="profile_wallet">
-                            {author?.address}
+                            {author.address}
                           </span>
                           <button id="btn_copy" title="Copy Text">
                             Copy
@@ -77,14 +80,15 @@ const Author = () => {
                       <div className="profile_follower">{followerAmount} followers</div>
                         {
                           !hasFollowed ? 
-                      <Link to="#" className="btn-main" onClick={followRequest}>Follow
+                          <Link to="#" className="btn-main" onClick={followRequest}>Follow
                       </Link> : <Link to="#" className="btn-main" onClick={followRequest}>Unfollow
                       </Link>
                         }
                     </div>
                   </div>
                 </div>
-              </div>
+            </div> : <AuthorSkeleton />
+            }
 
               <div className="col-md-12">
                 <div className="de_tab tab_simple">
