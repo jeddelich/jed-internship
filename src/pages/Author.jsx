@@ -8,6 +8,8 @@ import axios from "axios";
 const Author = () => {
  
   const [author, setAuthor] = useState(null);
+  const [hasFollowed, setHasFollowed] = useState(false);
+  const [followerAmount, setFollowerAmount] = useState(null);
 
   const { id } = useParams();
 
@@ -18,10 +20,18 @@ const Author = () => {
     setAuthor(data);
   }
 
+  function followRequest() {
+    if (!hasFollowed) {
+      setHasFollowed(true)
+      setFollowerAmount(followerAmount + 1)
+    }
+  }
+
   useEffect(() => {
     if (!author) {
       requestAuthor();
     } else {
+      setFollowerAmount(author.followers)
       console.log(author);
     }
   }, [useParams, setAuthor, author]);
@@ -65,10 +75,13 @@ const Author = () => {
                   </div>
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
-                      <div className="profile_follower">{author?.followers} followers</div>
-                      <Link to="#" className="btn-main">
-                        Follow
+                      <div className="profile_follower">{followerAmount} followers</div>
+                        {
+                          !hasFollowed ? 
+                      <Link to="#" className="btn-main" onClick={followRequest}>Follow
+                      </Link> : <Link to="#" className="btn-main" onClick={followRequest}>Unfollow
                       </Link>
+                        }
                     </div>
                   </div>
                 </div>
