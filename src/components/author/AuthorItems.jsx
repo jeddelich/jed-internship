@@ -1,27 +1,6 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import ItemCards from "../UI/ItemCards";
 
-const AuthorItems = () => {
-  const [author, setAuthor] = useState(null);
-
-  const { id } = useParams();
-
-  async function requestAuthor() {
-    const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${id}`,
-    );
-    setAuthor(data);
-  }
-
-  useEffect(() => {
-    if (!author) {
-      requestAuthor();
-    } else {
-      console.log(author);
-    }
-  }, [useParams, setAuthor, author]);
+const AuthorItems = ({ author }) => {
 
   return (
     <div className="de_tab_content">
