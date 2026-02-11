@@ -10,7 +10,7 @@ function Carousel({ hotCollectionsData }) {
         <div key={collection.id}>
           <div className="nft_coll mx-1">
             <div className="nft_wrap">
-              <Link to="/item-details/">
+              <Link to={`/item-details/${collection.nftId}`}>
                 <img
                   src={collection.nftImage}
                   className="lazy img-fluid"
@@ -19,7 +19,7 @@ function Carousel({ hotCollectionsData }) {
               </Link>
             </div>
             <div className="nft_coll_pp">
-              <Link to="/author">
+              <Link to={`/author/${collection.authorId}`}>
                 <img
                   className="lazy pp-coll"
                   src={collection.authorImage}

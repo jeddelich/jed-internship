@@ -1,10 +1,40 @@
-import React from "react";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
-import { Link } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
+import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import AuthorSkeleton from "../components/UI/AuthorSkeleton";
 
 const Author = () => {
+ 
+  const [author, setAuthor] = useState(null);
+  const [hasFollowed, setHasFollowed] = useState(false);
+  const [followerAmount, setFollowerAmount] = useState(null);
+
+  const { id } = useParams();
+
+  async function requestAuthor() {
+    const { data } = await axios.get(
+      `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${id}`,
+    );
+    setAuthor(data);
+  }
+
+  function followRequest() {
+    if (!hasFollowed) {
+      setHasFollowed(true)
+      setFollowerAmount(followerAmount + 1)
+    }
+  }
+
+  useEffect(() => {
+    if (!author) {
+      requestAuthor();
+    } else {
+      setFollowerAmount(author.followers)
+    }
+  }, [useParams, setAuthor, author]);
+ 
   return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
@@ -21,19 +51,22 @@ const Author = () => {
         <section aria-label="section">
           <div className="container">
             <div className="row">
+                {
+                  author ? 
               <div className="col-md-12">
-                <div className="d_profile de-flex">
+                  
+                  <div className="d_profile de-flex">
                   <div className="de-flex-col">
                     <div className="profile_avatar">
-                      <img src={AuthorImage} alt="" />
+                      <img src={author.authorImage} alt="" />
 
                       <i className="fa fa-check"></i>
                       <div className="profile_name">
                         <h4>
-                          Monica Lucas
-                          <span className="profile_username">@monicaaaa</span>
+                          {author.authorName}
+                          <span className="profile_username">@{author.tag}</span>
                           <span id="wallet" className="profile_wallet">
-                            UDHUHWudhwd78wdt7edb32uidbwyuidhg7wUHIFUHWewiqdj87dy7
+                            {author.address}
                           </span>
                           <button id="btn_copy" title="Copy Text">
                             Copy
@@ -44,18 +77,22 @@ const Author = () => {
                   </div>
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
-                      <div className="profile_follower">573 followers</div>
-                      <Link to="#" className="btn-main">
-                        Follow
+                      <div className="profile_follower">{followerAmount} followers</div>
+                        {
+                          !hasFollowed ? 
+                          <Link to="#" className="btn-main" onClick={followRequest}>Follow
+                      </Link> : <Link to="#" className="btn-main" onClick={followRequest}>Unfollow
                       </Link>
+                        }
                     </div>
                   </div>
                 </div>
-              </div>
+            </div> : <AuthorSkeleton />
+            }
 
               <div className="col-md-12">
                 <div className="de_tab tab_simple">
-                  <AuthorItems />
+                  <AuthorItems author={author}/>
                 </div>
               </div>
             </div>

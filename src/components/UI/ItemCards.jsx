@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Countdown from "./Countdown";
 
-function ItemCards({ item, wrapperClass = "", wrapperStyle = {} }) {
+function ItemCards({ item, author, wrapperClass = "", wrapperStyle = {} }) {
   return (
     <div className={wrapperClass} style={wrapperStyle}>
       <div className="nft__item mx-1">
@@ -12,7 +12,7 @@ function ItemCards({ item, wrapperClass = "", wrapperStyle = {} }) {
             data-bs-placement="top"
             title="Creator: Monica Lucas"
           >
-            <img className="lazy" src={item.authorImage} alt="" />
+            <img className="lazy" src={item.authorImage || author.authorImage} alt="" />
             <i className="fa fa-check"></i>
           </Link>
         </div>
