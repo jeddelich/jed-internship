@@ -22,6 +22,7 @@ const ExploreItems = () => {
   }
 
   function changeFilter(event) {
+    setExploreData(null)
     setFilter("?filter=" + event.target.value);
   }
 
