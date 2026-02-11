@@ -8,6 +8,7 @@ const AuthorItems = ({ author }) => {
         <div className="row">
           {author?.nftCollection.map((item) => (
             <ItemCards
+              author={author}
               key={item.id}
               item={item}
               wrapperClass="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12 w-full"
