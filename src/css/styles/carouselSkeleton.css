@@ -1,4 +1,4 @@
-.skeleton__img {
+.carousel__img--skeleton {
   width: 600px;
   height: 148px;
   max-width: 100%;
@@ -17,6 +17,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 4px;
 }
 
 .skeleton__title{
