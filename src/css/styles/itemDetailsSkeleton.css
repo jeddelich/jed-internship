@@ -17,8 +17,8 @@
     width: 300px;
 }
 
-.fa-eye,
-.fa-heart {
+.eye--skeleton,
+.heart--skeleton {
     visibility: hidden;
 }
 

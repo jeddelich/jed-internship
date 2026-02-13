@@ -19,10 +19,8 @@ const ItemDetails = () => {
 
   useEffect(() => {
     if (!details) {
-      // requestDetails();
-    } else {
-      console.log(details)
-    }
+      requestDetails();
+    } 
   }, [useParams, setDetails, details]);
 
   return (
