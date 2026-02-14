@@ -5,7 +5,7 @@ function ItemSkeleton({ item, wrapperClass = "", wrapperStyle = {} }) {
   return (
     <div className={wrapperClass} style={wrapperStyle}>
       <div key={item.id}>
-        <div className="nft__item mx-1">
+        <div className="nft__item nft__item--skeleton mx-1">
           <div className="author_list_pp">
               <div className="skeleton__img"></div>
               <i className="fa fa-check"></i>

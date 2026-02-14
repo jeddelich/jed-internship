@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import ItemCards from "../UI/ItemCards";
 import ItemSkeleton from "../UI/ItemSkeleton";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const ExploreItems = ({
   displayMore,
@@ -8,9 +11,14 @@ const ExploreItems = ({
   cardsDisplayed,
   exploreData,
 }) => {
+
+  useEffect(() => {
+    Aos.init()
+  }, [])
+
   return (
     <>
-      <div>
+      <div data-aos="fade-in" data-aos-duration="1000" data-aos-delay="200" data-aos-once="true" data-aos-offset="0">
         <select id="filter-items" defaultValue="" onChange={changeFilter}>
           <option value="">Default</option>
           <option value="price_low_to_high">Price, Low to High</option>
@@ -41,7 +49,7 @@ const ExploreItems = ({
           ))}
         </>
       )}
-      <div className="col-md-12 text-center">
+      <div className="col-md-12 text-center" data-aos="fade-up-extra-small" data-aos-duration="800" data-aos-delay="200" data-aos-once="true" data-aos-offset="0">
         {cardsDisplayed < exploreData?.length && (
           <Link
             to=""
