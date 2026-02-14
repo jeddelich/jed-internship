@@ -15,9 +15,9 @@ const NewItems = () => {
     setNewItemsData(data);
   }
 
-  // useEffect(() => {
-  //   requestNewItems();
-  // }, []);
+  useEffect(() => {
+    requestNewItems();
+  }, []);
 
   return (
     <section id="section-items" className="no-bottom">
