@@ -3,7 +3,7 @@ import Countdown from "./Countdown";
 
 function ItemCards({ item, author, wrapperClass = "", wrapperStyle = {} }) {
   return (
-    <div className={wrapperClass} style={wrapperStyle}>
+    <div className={wrapperClass} style={wrapperStyle} data-aos="fade-in" data-aos-duration="1000" data-aos-delay="200" data-aos-once="true" data-aos-offset="0">
       <div className="nft__item mx-1">
         <div className="author_list_pp">
           <Link

@@ -1,13 +1,18 @@
+
 .skeleton__img{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 4px solid white;
+    background-color: lightgray;
 }
 
 .nft__item_wrap-skeleton {
     background-color: lightgray;
     margin-bottom: 4px;
+    margin-top: 70px;
+    height: 260px;
+    margin-bottom: 20px;
+    border-radius: 12px;
 }
 
 .nft__item_bottom-skeleton{
@@ -19,6 +24,7 @@
   width: 100px;
   height: 20px;
   background-color: lightgray;
+  border-radius: 4px;
 }
 
 .nft__item_like-skeleton {
@@ -26,10 +32,12 @@
   margin-top: 8px;
   height: 16px;
   background-color: lightgray;
+  border-radius: 4px;
 }
 
 .nft__item_info-skeleton h4 {
     width: 172px;
     height: 28px;
     background-color: lightgray;
+    border-radius: 4px;
 }

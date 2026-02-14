@@ -16738,3 +16738,36 @@ img {
 .no-cursor {
   cursor: not-allowed;
 }
+
+[data-aos="fade-up-extra-small"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition-property: transform, opacity;
+}
+
+[data-aos="fade-up-extra-small"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-aos="fade-left-extra-small"] {
+  opacity: 0;
+  transform: translateX(10px);
+  transition-property: transform, opacity;
+}
+
+[data-aos="fade-left-extra-small"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-aos="fade-up-small"] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition-property: transform, opacity;
+}
+
+[data-aos="fade-up-small"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
