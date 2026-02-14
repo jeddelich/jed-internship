@@ -16295,6 +16295,14 @@ img {
     display: none;
   }
 
+  .item_info h2 {
+    margin-top: 32px;
+  }
+
+  .item_info {
+    padding-left: 0;
+  }
+
   .d_profile {
     display: block;
   }
@@ -16705,6 +16713,7 @@ img {
 .nft-image {
   height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 
 #filter-items {

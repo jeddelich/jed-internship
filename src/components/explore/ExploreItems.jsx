@@ -1,35 +1,13 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import ItemCards from "../UI/ItemCards";
 import ItemSkeleton from "../UI/ItemSkeleton";
 
-const ExploreItems = () => {
-  const [exploreData, setExploreData] = useState(null);
-  const [cardsDisplayed, setCardsDisplayed] = useState(8);
-  const [filter, setFilter] = useState("");
-
-  async function requestExploreData() {
-    const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore${filter}`,
-    );
-    setExploreData(data);
-  }
-
-  function displayMore(event) {
-    event.preventDefault();
-    cardsDisplayed < exploreData?.length && setCardsDisplayed(cardsDisplayed + 4)
-  }
-
-  function changeFilter(event) {
-    setExploreData(null)
-    setFilter("?filter=" + event.target.value);
-  }
-
-  useEffect(() => {
-    requestExploreData();
-  }, [setFilter, filter]);
-
+const ExploreItems = ({
+  displayMore,
+  changeFilter,
+  cardsDisplayed,
+  exploreData,
+}) => {
   return (
     <>
       <div>

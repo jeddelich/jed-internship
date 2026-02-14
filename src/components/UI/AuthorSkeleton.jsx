@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "../../css/styles/authorSkeleton.css"
 
 function AuthorSkeleton() {

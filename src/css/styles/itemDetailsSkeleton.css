@@ -1,0 +1,44 @@
+.item-details__author--skeleton,
+.item-details__description--skeleton,
+.item-details__img--skeleton,
+.item-details__name--skeleton,
+.item-details__price--skeleton,
+.item-details__title--skeleton {
+    background-color: lightgray;
+}
+
+.item-details__img--skeleton{
+    height: 480px;
+    width: 648px;
+}
+
+.item-details__title--skeleton{
+    height: 40px;
+    width: 300px;
+}
+
+.eye--skeleton,
+.heart--skeleton {
+    visibility: hidden;
+}
+
+.item-details__description--skeleton{
+    height: 100px;
+    width: 100%;
+}
+
+.item-details__author--skeleton{
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+}
+
+.item-details__name--skeleton{
+    height: 20px;
+    width: 120px;
+}
+
+.item-details__price--skeleton{
+    height: 20px;
+    width: 80px;
+}
