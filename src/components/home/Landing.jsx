@@ -25,7 +25,8 @@ const Landing = () => {
               <div className="spacer-single"></div>
               <h6>
                 <span
-                  data-aos="fade-up"
+                  style={{ display: "inline-block" }}
+                  data-aos="fade-up-extra-small"
                   data-aos-duration="1000"
                   data-aos-delay="600"
                   data-aos-easing="ease-out"

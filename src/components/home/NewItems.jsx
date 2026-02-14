@@ -20,7 +20,7 @@ const NewItems = () => {
   }, []);
 
   return (
-    <section id="section-items" className="no-bottom">
+    <section data-aos="fade-in" data-aos-duration="1000" data-aos-delay="200" data-aos-once="true" id="section-items" className="no-bottom">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
