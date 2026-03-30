@@ -13,13 +13,6 @@ const Author = () => {
 
   const { id } = useParams();
 
-  async function requestAuthor() {
-    const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${id}`,
-    );
-    setAuthor(data);
-  }
-
   function followRequest() {
     if (!hasFollowed) {
       setHasFollowed(true)
@@ -28,12 +21,26 @@ const Author = () => {
   }
 
   useEffect(() => {
-    if (!author) {
-      requestAuthor();
-    } else {
-      setFollowerAmount(author.followers)
+    let isMounted = true;
+
+    async function requestAuthor() {
+      const { data } = await axios.get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${id}`,
+      );
+
+      if (isMounted) {
+        setAuthor(data);
+        setFollowerAmount(data.followers);
+        setHasFollowed(false);
+      }
     }
-  }, [useParams, setAuthor, author]);
+
+    requestAuthor();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [id]);
  
   return (
     <div id="wrapper">
