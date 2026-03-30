@@ -29,9 +29,9 @@ const ExploreItems = ({
       {exploreData ? (
         exploreData
           .slice(0, cardsDisplayed)
-          .map((item) => (
+          .map((item, index) => (
             <ItemCards
-              key={item.id}
+              key={index}
               item={item}
               wrapperClass="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12 w-full"
               wrapperStyle={{ display: "block", backgroundSize: "cover" }}
@@ -39,9 +39,9 @@ const ExploreItems = ({
           ))
       ) : (
         <>
-          {new Array(8).fill("").map((item) => (
+          {new Array(8).fill("").map((item, index) => (
             <ItemSkeleton
-              key={item.id}
+              key={index}
               item={item}
               wrapperClass="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12 w-full"
               wrapperStyle={{ display: "block", backgroundSize: "cover" }}

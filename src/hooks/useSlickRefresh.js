@@ -5,12 +5,12 @@ function useSlickRefresh(sliderRef, dependency) {
     if (!sliderRef.current) return;
 
     const timeout = setTimeout(() => {
-      sliderRef.current.slickGoTo(0);
-      sliderRef.current.slickRefresh();
+      sliderRef.current?.slickGoTo?.(0);
+      sliderRef.current?.innerSlider?.onWindowResized?.();
     }, 100);
 
     return () => clearTimeout(timeout);
-  }, [dependency]);
+  }, [sliderRef, dependency]);
 }
 
 export default useSlickRefresh;

@@ -39,12 +39,12 @@ const NewItems = () => {
           </div>
           {newItemsData ? (
             <Slider ref={sliderRef} {...carouselSettings} slidesToShow={slidesToShow} infinite={newItemsData.length > slidesToShow}>
-              {newItemsData.map((item) => (<ItemCards key={item.id} item={item} />))}
+              {newItemsData.map((item, index) => (<ItemCards key={index} item={item} />))}
             </Slider>
           ) : (
             <Slider {...carouselSettings}>
-              {new Array(6).fill("").map((item) => (
-              <ItemSkeleton key={item.id} item={item}/>
+              {new Array(6).fill("").map((item, index) => (
+              <ItemSkeleton key={index} item={item}/>
               ))}
             </Slider>
           )}

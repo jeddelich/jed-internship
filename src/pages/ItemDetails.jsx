@@ -10,18 +10,25 @@ const ItemDetails = () => {
 
   const { id } = useParams();
 
-  async function requestDetails() {
-    const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${id}`,
-    );
-    setDetails(data);
-  }
-
   useEffect(() => {
-    if (!details) {
-      requestDetails();
-    } 
-  }, [useParams, setDetails, details]);
+    let isMounted = true;
+
+    async function requestDetails() {
+      const { data } = await axios.get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${id}`,
+      );
+
+      if (isMounted) {
+        setDetails(data);
+      }
+    }
+
+    requestDetails();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [id]);
 
   return (
     <div id="wrapper">
