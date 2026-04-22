@@ -1,13 +1,7 @@
 import { Link } from "react-router-dom";
 import Countdown from "./Countdown";
 
-function ItemCards({
-  item,
-  author,
-  wrapperClass = "",
-  wrapperStyle = {},
-  disableLazyLoad = false,
-}) {
+function ItemCards({ item, author, wrapperClass = "", wrapperStyle = {} }) {
   return (
     <div className={wrapperClass} style={wrapperStyle} data-aos="fade-in" data-aos-duration="1000" data-aos-delay="200" data-aos-once="true" data-aos-offset="0">
       <div className="nft__item mx-1">
@@ -18,12 +12,7 @@ function ItemCards({
             data-bs-placement="top"
             title="Creator: Monica Lucas"
           >
-            <img
-              className={disableLazyLoad ? "" : "lazy"}
-              src={item.authorImage || author.authorImage}
-              loading={disableLazyLoad ? "eager" : "lazy"}
-              alt=""
-            />
+            <img className="lazy" src={item.authorImage || author.authorImage} alt="" />
             <i className="fa fa-check"></i>
           </Link>
         </div>
@@ -50,8 +39,7 @@ function ItemCards({
           <Link to={`/item-details/${item.nftId}`}>
             <img
               src={item.nftImage}
-              className={`${disableLazyLoad ? "" : "lazy "}nft__item_preview`}
-              loading={disableLazyLoad ? "eager" : "lazy"}
+              className="lazy nft__item_preview"
               alt=""
             />
           </Link>

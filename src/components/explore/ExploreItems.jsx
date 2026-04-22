@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import ItemCards from "../UI/ItemCards";
-// import ItemSkeleton from "../UI/ItemSkeleton"; // TEMP: disabled for Lighthouse comparison
+import ItemSkeleton from "../UI/ItemSkeleton";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -33,12 +33,22 @@ const ExploreItems = ({
             <ItemCards
               key={index}
               item={item}
-              disableLazyLoad={true}
               wrapperClass="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12 w-full"
               wrapperStyle={{ display: "block", backgroundSize: "cover" }}
             />
           ))
-      ) : null /* TEMP: skeleton disabled for Lighthouse comparison */}
+      ) : (
+        <>
+          {new Array(8).fill("").map((item, index) => (
+            <ItemSkeleton
+              key={index}
+              item={item}
+              wrapperClass="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12 w-full"
+              wrapperStyle={{ display: "block", backgroundSize: "cover" }}
+            />
+          ))}
+        </>
+      )}
       <div className="col-md-12 text-center" data-aos="fade-up-extra-small" data-aos-duration="800" data-aos-delay="200" data-aos-once="true" data-aos-offset="0">
         {cardsDisplayed < exploreData?.length && (
           <Link
