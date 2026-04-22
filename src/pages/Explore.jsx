@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SubHeader from "../images/subheader.jpg";
+import SubHeader from "../images/subheader.webp";
 import ExploreItems from "../components/explore/ExploreItems";
 import axios from "axios";
 
